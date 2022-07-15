@@ -53,5 +53,17 @@ body {
   Your browser does not support HTML5 video.
 </video>
 
+<script type=text/javascript>
+document.addEventListener("orientationchange", function(event){
+    switch(window.orientation) 
+    {  
+        case -90: case 90:
+            /* Device is in landscape mode */
+            break; 
+        default:
+            /* Device is in portrait mode */
+    }
+});
+</script>
 </body>
 </html>
