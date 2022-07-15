@@ -1,26 +1,4 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Spin Side</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-    	/* (A) WRONG ORIENTATION - SHOW MESSAGE HIDE CONTENT */
-@media only screen and (orientation:portrait) {
-  #turn { display:block; }
-  #container { display:none; }
-}
-
-/* (B) CORRECT ORIENTATION - SHOW CONTENT HIDE MESSAGE */
-@media only screen and (orientation:landscape) {
-  #turn { display:none; }
-  #container { display:block; }
-}
-</style>
-  </head>
-  <body>
-    <!-- (A) THIS WILL SHOW ON THE WRONG ORIENTATION -->
-    <div id="turn">
-      <div id="gitcontnet">
+<div id="gitcontnet">
     <script type="text/javascript">
     window.iaPreCachedAd = true;
 
@@ -143,26 +121,3 @@
 
     </div>
 </div>
-    </div>
-
-    <!-- (B) CONTENTS AS USUAL -->
-    <div id="container">
-    	<style type="text/css">
-    #container {
-      margin: 0;
-      padding: 0;
-      border: 0;
-      overflow: hidden;
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
-</style>
-  <video id="video1" width="1280">
-    <source src="assets/rickroll/video.mp4" type="video/mp4">
-    <source src="assets/rickroll/music.ogg" type="video/ogg">
-    Your browser does not support HTML video.
-  </video>
-    </div>
-  </body>
-</html>
