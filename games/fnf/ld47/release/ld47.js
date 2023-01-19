@@ -6610,8 +6610,6 @@ Charting.prototype = $extend(flixel_FlxState.prototype,{
 	,isDad: null
 	,camFollow: null
 	,create: function() {
-		Paths.clearUnusedMemory();
-		Paths.clearStoredMemory();
 		var _this = flixel_FlxG.sound.music;
 		_this.cleanup(_this.autoDestroy,true);
 		var gridBG = flixel_addons_display_FlxGridOverlay.create(10,10);
@@ -7686,214 +7684,6 @@ Note.prototype = $extend(flixel_FlxSprite.prototype,{
 	}
 	,__class__: Note
 });
-var Paths = function() { };
-$hxClasses["Paths"] = Paths;
-Paths.__name__ = "Paths";
-Paths.currentLevel = null;
-Paths.clearUnusedMemory = function() {
-	var key = haxe_ds_StringMap.keysIterator(Paths.currentTrackedAssets.h);
-	while(key.hasNext()) {
-		var key1 = key.next();
-		if(Paths.localTrackedAssets.indexOf(key1) == -1 && key1 != null) {
-			var obj = Paths.currentTrackedAssets.h[key1];
-			if(obj != null) {
-				if(Object.prototype.hasOwnProperty.call(Paths.currentTrackedTextures.h,key1)) {
-					var texture = Paths.currentTrackedTextures.h[key1];
-					texture.dispose();
-					texture = null;
-					var _this = Paths.currentTrackedTextures;
-					if(Object.prototype.hasOwnProperty.call(_this.h,key1)) {
-						delete(_this.h[key1]);
-					}
-				}
-				openfl_utils_Assets.cache.removeBitmapData(key1);
-				openfl_utils_Assets.cache.clearBitmapData(key1);
-				openfl_utils_Assets.cache.clear(key1);
-				var _this1 = flixel_FlxG.bitmap._cache;
-				if(Object.prototype.hasOwnProperty.call(_this1.h,key1)) {
-					delete(_this1.h[key1]);
-				}
-				obj.destroy();
-				var _this2 = Paths.currentTrackedAssets;
-				if(Object.prototype.hasOwnProperty.call(_this2.h,key1)) {
-					delete(_this2.h[key1]);
-				}
-			}
-		}
-	}
-	var key = haxe_ds_StringMap.keysIterator(Paths.currentTrackedSounds.h);
-	while(key.hasNext()) {
-		var key1 = key.next();
-		if(Paths.localTrackedAssets.indexOf(key1) == -1 && key1 != null) {
-			if(Paths.currentTrackedSounds.h[key1] != null) {
-				openfl_utils_Assets.cache.removeSound(key1);
-				openfl_utils_Assets.cache.clearSounds(key1);
-				openfl_utils_Assets.cache.clear(key1);
-				var _this = Paths.currentTrackedSounds;
-				if(Object.prototype.hasOwnProperty.call(_this.h,key1)) {
-					delete(_this.h[key1]);
-				}
-			}
-		}
-	}
-};
-Paths.clearStoredMemory = function() {
-	var key = haxe_ds_StringMap.keysIterator(flixel_FlxG.bitmap._cache.h);
-	while(key.hasNext()) {
-		var key1 = key.next();
-		var obj = flixel_FlxG.bitmap._cache.h[key1];
-		if(obj != null && !Object.prototype.hasOwnProperty.call(Paths.currentTrackedAssets.h,key1)) {
-			openfl_utils_Assets.cache.removeBitmapData(key1);
-			openfl_utils_Assets.cache.clearBitmapData(key1);
-			openfl_utils_Assets.cache.clear(key1);
-			var _this = flixel_FlxG.bitmap._cache;
-			if(Object.prototype.hasOwnProperty.call(_this.h,key1)) {
-				delete(_this.h[key1]);
-			}
-			obj.destroy();
-		}
-	}
-	var _g = 0;
-	var _g1 = openfl_utils_Assets.cache.getSoundKeys();
-	while(_g < _g1.length) {
-		var key = _g1[_g];
-		++_g;
-		if(key != null && !Object.prototype.hasOwnProperty.call(Paths.currentTrackedSounds.h,key)) {
-			if(openfl_utils_Assets.cache.getSound(key) != null) {
-				openfl_utils_Assets.cache.removeSound(key);
-				openfl_utils_Assets.cache.clearSounds(key);
-				openfl_utils_Assets.cache.clear(key);
-			}
-		}
-	}
-	Paths.localTrackedAssets = [];
-};
-Paths.setCurrentLevel = function(name) {
-	Paths.currentLevel = name.toLowerCase();
-};
-Paths.getPath = function(file,type,library) {
-	if(library != null) {
-		return Paths.getLibraryPath(file,library);
-	}
-	if(Paths.currentLevel != null) {
-		var library = Paths.currentLevel;
-		var levelPath = "" + library + ":assets/" + library + "/" + file;
-		if(openfl_utils_Assets.exists(levelPath,type)) {
-			return levelPath;
-		}
-		levelPath = "shared" + ":assets/" + "shared" + "/" + file;
-		if(openfl_utils_Assets.exists(levelPath,type)) {
-			return levelPath;
-		}
-	}
-	return "assets/" + file;
-};
-Paths.getLibraryPath = function(file,library) {
-	if(library == null) {
-		library = "preload";
-	}
-	if(library == "preload" || library == "default") {
-		return "assets/" + file;
-	} else {
-		return "" + library + ":assets/" + library + "/" + file;
-	}
-};
-Paths.getLibraryPathForce = function(file,library) {
-	return "" + library + ":assets/" + library + "/" + file;
-};
-Paths.getPreloadPath = function(file) {
-	return "assets/" + file;
-};
-Paths.file = function(file,type,library) {
-	if(type == null) {
-		type = "TEXT";
-	}
-	return Paths.getPath(file,type,library);
-};
-Paths.txt = function(key,library) {
-	return Paths.getPath("data/" + key + ".txt","TEXT",library);
-};
-Paths.xml = function(key,library) {
-	return Paths.getPath("data/" + key + ".xml","TEXT",library);
-};
-Paths.sound = function(key,library) {
-	return Paths.getPath("sounds/" + key + "." + "mp3","SOUND",library);
-};
-Paths.soundRandom = function(key,min,max,library) {
-	return Paths.sound(key + flixel_FlxG.random.int(min,max),library);
-};
-Paths.music = function(key,library) {
-	return Paths.getPath("music/" + key + "." + "mp3","MUSIC",library);
-};
-Paths.image = function(key,library) {
-	return Paths.getPath("images/" + key + ".png","IMAGE",library);
-};
-Paths.font = function(key) {
-	return "assets/fonts/" + key;
-};
-Paths.getSparrowAtlas = function(key,library) {
-	return flixel_graphics_frames_FlxAtlasFrames.fromSparrow(Paths.getPath("images/" + key + ".png","IMAGE",library),Paths.getPath("images/" + key + ".xml","TEXT",library));
-};
-Paths.getPackerAtlas = function(key,library) {
-	return flixel_graphics_frames_FlxAtlasFrames.fromSpriteSheetPacker(Paths.getPath("images/" + key + ".png","IMAGE",library),Paths.getPath("images/" + key + ".txt","TEXT",library));
-};
-Paths.returnGraphic = function(key,cache) {
-	if(cache == null) {
-		cache = true;
-	}
-	var path = "assets/" + key + ".png";
-	if(openfl_utils_Assets.exists(path,"IMAGE")) {
-		if(!Object.prototype.hasOwnProperty.call(Paths.currentTrackedAssets.h,path)) {
-			var newGraphic = null;
-			var bitmap = openfl_utils_Assets.getBitmapData(path);
-			switch(flixel_FlxG.save.data.render) {
-			case 1:
-				var texture = openfl_Lib.get_current().stage.context3D.createTexture(bitmap.width,bitmap.height,1,true);
-				texture.uploadFromBitmapData(bitmap);
-				Paths.currentTrackedTextures.h[path] = texture;
-				bitmap.dispose();
-				bitmap.disposeImage();
-				bitmap = null;
-				newGraphic = flixel_graphics_FlxGraphic.fromBitmapData(openfl_display_BitmapData.fromTexture(texture),false,path);
-				break;
-			case 2:
-				var texture = openfl_Lib.get_current().stage.context3D.createTexture(bitmap.width,bitmap.height,1,true);
-				texture.uploadFromBitmapData(bitmap);
-				Paths.currentTrackedTextures.h[path] = texture;
-				bitmap.dispose();
-				bitmap.disposeImage();
-				bitmap = null;
-				newGraphic = flixel_graphics_FlxGraphic.fromBitmapData(openfl_display_BitmapData.fromTexture(texture),false,path);
-				break;
-			default:
-				newGraphic = flixel_graphics_FlxGraphic.fromBitmapData(bitmap,false,path);
-			}
-			newGraphic.persist = true;
-			Paths.currentTrackedAssets.h[path] = newGraphic;
-		}
-		Paths.localTrackedAssets.push(path);
-		return Paths.currentTrackedAssets.h[path];
-	}
-	haxe_Log.trace("" + key + " image is null",{ fileName : "source/Paths.hx", lineNumber : 247, className : "Paths", methodName : "returnGraphic"});
-	return null;
-};
-Paths.returnSound = function(key,cache) {
-	if(cache == null) {
-		cache = true;
-	}
-	if(openfl_utils_Assets.exists("assets/" + key + "." + "mp3","SOUND")) {
-		var path = "assets/" + key + "." + "mp3";
-		if(!Object.prototype.hasOwnProperty.call(Paths.currentTrackedSounds.h,path)) {
-			var this1 = Paths.currentTrackedSounds;
-			var value = openfl_utils_Assets.getSound(path,cache);
-			this1.h[path] = value;
-		}
-		Paths.localTrackedAssets.push(path);
-		return Paths.currentTrackedSounds.h[path];
-	}
-	haxe_Log.trace("" + key + " sound is null",{ fileName : "source/Paths.hx", lineNumber : 263, className : "Paths", methodName : "returnSound"});
-	return null;
-};
 var PlayState = function(TransIn,TransOut) {
 	this.sectionScored = false;
 	this.sortedNotes = false;
@@ -7948,8 +7738,6 @@ PlayState.prototype = $extend(flixel_addons_transition_FlxTransitionableState.pr
 	,healthHeads: null
 	,create: function() {
 		var _gthis = this;
-		Paths.clearUnusedMemory();
-		Paths.clearStoredMemory();
 		this.persistentUpdate = true;
 		this.persistentDraw = true;
 		var bg = new flixel_FlxSprite(-600,-200).loadGraphic("assets/images/stageback.png");
@@ -8137,11 +7925,11 @@ PlayState.prototype = $extend(flixel_addons_transition_FlxTransitionableState.pr
 				totalLength += Math.round(coolSection / 4);
 				++daBeats;
 			}
-			haxe_Log.trace(this.unspawnNotes.length,{ fileName : "source/PlayState.hx", lineNumber : 316, className : "PlayState", methodName : "generateSong"});
+			haxe_Log.trace(this.unspawnNotes.length,{ fileName : "source/PlayState.hx", lineNumber : 313, className : "PlayState", methodName : "generateSong"});
 			++playerCounter;
 		}
 		this.unspawnNotes.sort($bind(this,this.sortByShit));
-		haxe_Log.trace("FIRST NOTE " + Std.string(this.unspawnNotes[0]),{ fileName : "source/PlayState.hx", lineNumber : 321, className : "PlayState", methodName : "generateSong"});
+		haxe_Log.trace("FIRST NOTE " + Std.string(this.unspawnNotes[0]),{ fileName : "source/PlayState.hx", lineNumber : 318, className : "PlayState", methodName : "generateSong"});
 	}
 	,sortByShit: function(Obj1,Obj2) {
 		var Value1 = Obj1.strumTime;
@@ -8435,8 +8223,8 @@ PlayState.prototype = $extend(flixel_addons_transition_FlxTransitionableState.pr
 			})(numScore), startDelay : Conductor.crochet * 0.002});
 			++daLoop;
 		}
-		haxe_Log.trace(this.combo,{ fileName : "source/PlayState.hx", lineNumber : 647, className : "PlayState", methodName : "popUpScore"});
-		haxe_Log.trace(seperatedScore,{ fileName : "source/PlayState.hx", lineNumber : 648, className : "PlayState", methodName : "popUpScore"});
+		haxe_Log.trace(this.combo,{ fileName : "source/PlayState.hx", lineNumber : 644, className : "PlayState", methodName : "popUpScore"});
+		haxe_Log.trace(seperatedScore,{ fileName : "source/PlayState.hx", lineNumber : 645, className : "PlayState", methodName : "popUpScore"});
 		coolText.set_text(Std.string(seperatedScore));
 		flixel_tweens_FlxTween.tween(rating,{ alpha : 0},0.2,{ startDelay : Conductor.crochet * 0.001});
 		flixel_tweens_FlxTween.tween(comboSpr,{ alpha : 0},0.2,{ onComplete : function(tween) {
@@ -8465,7 +8253,7 @@ PlayState.prototype = $extend(flixel_addons_transition_FlxTransitionableState.pr
 			this.notes.forEachAlive(function(daNote) {
 				if(daNote.canBeHit && daNote.mustPress && !daNote.tooLate) {
 					possibleNotes.push(daNote);
-					haxe_Log.trace("NOTE-" + daNote.strumTime + " ADDED",{ fileName : "source/PlayState.hx", lineNumber : 699, className : "PlayState", methodName : "keyShit"});
+					haxe_Log.trace("NOTE-" + daNote.strumTime + " ADDED",{ fileName : "source/PlayState.hx", lineNumber : 696, className : "PlayState", methodName : "keyShit"});
 				}
 			});
 			if(possibleNotes.length > 0) {
@@ -8629,7 +8417,7 @@ PlayState.prototype = $extend(flixel_addons_transition_FlxTransitionableState.pr
 		}
 	}
 	,noteCheck: function(keyP,note) {
-		haxe_Log.trace(note.noteData + " note check here " + (keyP == null ? "null" : "" + keyP),{ fileName : "source/PlayState.hx", lineNumber : 855, className : "PlayState", methodName : "noteCheck"});
+		haxe_Log.trace(note.noteData + " note check here " + (keyP == null ? "null" : "" + keyP),{ fileName : "source/PlayState.hx", lineNumber : 852, className : "PlayState", methodName : "noteCheck"});
 		if(keyP) {
 			this.goodNoteHit(note);
 		} else {
@@ -33602,8 +33390,7 @@ flixel_system_FlxSplash.prototype = $extend(flixel_FlxState.prototype,{
 		flixel_FlxG.fixedTimestep = false;
 		this._cachedAutoPause = flixel_FlxG.autoPause;
 		flixel_FlxG.autoPause = false;
-		var library = null;
-		this.animatedTex = flixel_graphics_frames_FlxAtlasFrames.fromSparrow(Paths.getPath("images/" + "ui/flixel_intro" + ".png","IMAGE",library),Paths.getPath("images/" + "ui/flixel_intro" + ".xml","TEXT",library));
+		this.animatedTex = flixel_graphics_frames_FlxAtlasFrames.fromSparrow("assets/images/ui/flixel_intro.png","assets/images/ui/flixel_intro.xml");
 		this.animatedIntro = new flixel_FlxSprite(0,0);
 		this.animatedIntro.set_frames(this.animatedTex);
 		this.animatedIntro.animation.addByPrefix("intro","intro",24);
@@ -33615,7 +33402,7 @@ flixel_system_FlxSplash.prototype = $extend(flixel_FlxState.prototype,{
 		new flixel_util_FlxTimer().start(0.636,$bind(this,this.timerCallback));
 		this.onResize(openfl_Lib.get_current().stage.stageWidth,openfl_Lib.get_current().stage.stageHeight);
 		if(!flixel_system_FlxSplash.muted) {
-			flixel_FlxG.sound.load(Paths.sound("flixel","preload")).play();
+			flixel_FlxG.sound.play("assets/sounds/flixel.mp3",0.7);
 		}
 		if(flixel_FlxG.save.data.hasSeenSplash != null && flixel_FlxG.save.data.hasSeenSplash) {
 			this.skipScreen = new flixel_text_FlxText(0,flixel_FlxG.height,0,"Press Enter Or Touch Your Screen To Skip",16);
@@ -68125,7 +67912,7 @@ var lime_utils_AssetCache = function() {
 	this.audio = new haxe_ds_StringMap();
 	this.font = new haxe_ds_StringMap();
 	this.image = new haxe_ds_StringMap();
-	this.version = 179598;
+	this.version = 933728;
 };
 $hxClasses["lime.utils.AssetCache"] = lime_utils_AssetCache;
 lime_utils_AssetCache.__name__ = "lime.utils.AssetCache";
@@ -111980,13 +111767,6 @@ openfl_utils_IAssetCache.prototype = {
 	get_enabled: null
 	,set_enabled: null
 	,clear: null
-	,clearBitmapData: null
-	,clearFonts: null
-	,clearSounds: null
-	,getKeys: null
-	,getBitmapKeys: null
-	,getFontKeys: null
-	,getSoundKeys: null
 	,getBitmapData: null
 	,getFont: null
 	,getSound: null
@@ -112017,91 +111797,33 @@ openfl_utils_AssetCache.prototype = {
 	,sound: null
 	,__enabled: null
 	,clear: function(prefix) {
-		this.clearBitmapData(prefix);
-		this.clearFonts(prefix);
-		this.clearSounds(prefix);
-	}
-	,clearBitmapData: function(prefix) {
 		if(prefix == null) {
 			this.bitmapData = new haxe_ds_StringMap();
-		} else {
-			var _g = 0;
-			var _g1 = this.getBitmapKeys(prefix);
-			while(_g < _g1.length) this.removeBitmapData(_g1[_g++]);
-		}
-	}
-	,clearFonts: function(prefix) {
-		if(prefix == null) {
 			this.font = new haxe_ds_StringMap();
-		} else {
-			var _g = 0;
-			var _g1 = this.getFontKeys(prefix);
-			while(_g < _g1.length) this.removeFont(_g1[_g++]);
-		}
-	}
-	,clearSounds: function(prefix) {
-		if(prefix == null) {
 			this.sound = new haxe_ds_StringMap();
 		} else {
-			var _g = 0;
-			var _g1 = this.getSoundKeys(prefix);
-			while(_g < _g1.length) this.removeSound(_g1[_g++]);
-		}
-	}
-	,getKeys: function(prefix) {
-		var result = [];
-		result = result.concat(this.getBitmapKeys(prefix));
-		result = result.concat(this.getFontKeys(prefix));
-		result = result.concat(this.getSoundKeys(prefix));
-		return result;
-	}
-	,getBitmapKeys: function(prefix) {
-		var result = [];
-		if(prefix == null) {
-			var key = haxe_ds_StringMap.keysIterator(this.bitmapData.h);
-			while(key.hasNext()) result.push(key.next());
-		} else {
-			var key = haxe_ds_StringMap.keysIterator(this.bitmapData.h);
-			while(key.hasNext()) {
-				var key1 = key.next();
-				if(StringTools.startsWith(key1,prefix)) {
-					result.push(key1);
+			var keys = haxe_ds_StringMap.keysIterator(this.bitmapData.h);
+			while(keys.hasNext()) {
+				var key = keys.next();
+				if(StringTools.startsWith(key,prefix)) {
+					this.removeBitmapData(key);
+				}
+			}
+			var keys = haxe_ds_StringMap.keysIterator(this.font.h);
+			while(keys.hasNext()) {
+				var key = keys.next();
+				if(StringTools.startsWith(key,prefix)) {
+					this.removeFont(key);
+				}
+			}
+			var keys = haxe_ds_StringMap.keysIterator(this.sound.h);
+			while(keys.hasNext()) {
+				var key = keys.next();
+				if(StringTools.startsWith(key,prefix)) {
+					this.removeSound(key);
 				}
 			}
 		}
-		return result;
-	}
-	,getFontKeys: function(prefix) {
-		var result = [];
-		if(prefix == null) {
-			var key = haxe_ds_StringMap.keysIterator(this.font.h);
-			while(key.hasNext()) result.push(key.next());
-		} else {
-			var key = haxe_ds_StringMap.keysIterator(this.font.h);
-			while(key.hasNext()) {
-				var key1 = key.next();
-				if(StringTools.startsWith(key1,prefix)) {
-					result.push(key1);
-				}
-			}
-		}
-		return result;
-	}
-	,getSoundKeys: function(prefix) {
-		var result = [];
-		if(prefix == null) {
-			var key = haxe_ds_StringMap.keysIterator(this.sound.h);
-			while(key.hasNext()) result.push(key.next());
-		} else {
-			var key = haxe_ds_StringMap.keysIterator(this.sound.h);
-			while(key.hasNext()) {
-				var key1 = key.next();
-				if(StringTools.startsWith(key1,prefix)) {
-					result.push(key1);
-				}
-			}
-		}
-		return result;
 	}
 	,getBitmapData: function(id) {
 		return this.bitmapData.h[id];
@@ -113613,11 +113335,6 @@ flixel_addons_transition_FlxTransitionableState.skipNextTransOut = false;
 openfl_text_Font.__fontByName = new haxe_ds_StringMap();
 openfl_text_Font.__registeredFonts = [];
 Note.swagWidth = 112.;
-Paths.SOUND_EXT = "mp3";
-Paths.currentTrackedAssets = new haxe_ds_StringMap();
-Paths.currentTrackedTextures = new haxe_ds_StringMap();
-Paths.currentTrackedSounds = new haxe_ds_StringMap();
-Paths.localTrackedAssets = [];
 PlayState.curLevel = "Bopeebo";
 TitleState.initialized = false;
 Xml.Element = 0;
