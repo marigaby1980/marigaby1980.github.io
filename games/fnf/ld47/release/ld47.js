@@ -68139,7 +68139,7 @@ var lime_utils_AssetCache = function() {
 	this.audio = new haxe_ds_StringMap();
 	this.font = new haxe_ds_StringMap();
 	this.image = new haxe_ds_StringMap();
-	this.version = 211602;
+	this.version = 460006;
 };
 $hxClasses["lime.utils.AssetCache"] = lime_utils_AssetCache;
 lime_utils_AssetCache.__name__ = "lime.utils.AssetCache";
@@ -74680,7 +74680,7 @@ var openfl_display_FPS = function(x,y,color) {
 	this.currentFPS = 0;
 	this.set_selectable(false);
 	this.mouseEnabled = false;
-	this.set_defaultTextFormat(new openfl_text_TextFormat("robotoserif120pt.ttf",20,color));
+	this.set_defaultTextFormat(new openfl_text_TextFormat("robotoserif120pt.ttf",15,color));
 	this.set_text("FPS: ");
 	this.cacheCount = 0;
 	this.currentTime = 0;
