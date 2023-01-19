@@ -3317,28 +3317,16 @@ openfl_display_Sprite.prototype = $extend(openfl_display_DisplayObjectContainer.
 	,__properties__: $extend(openfl_display_DisplayObjectContainer.prototype.__properties__,{get_graphics:"get_graphics",set_buttonMode:"set_buttonMode",get_buttonMode:"get_buttonMode"})
 });
 var Main = function() {
-	this.startFullscreen = false;
-	this.skipSplash = false;
-	this.zoom = -1;
-	this.initialState = TitleState;
-	this.gameHeight = 720;
-	this.gameWidth = 1280;
-	SUSutil.uncaughtErrorHandler();
+	SUtil.uncaughtErrorHandler();
 	openfl_display_Sprite.call(this);
-	this.addChild(new flixel_FlxGame(this.gameWidth,this.gameHeight,this.initialState,this.zoom,Main.framerate,Main.framerate,this.skipSplash,this.startFullscreen));
+	this.addChild(new flixel_FlxGame(0,0,TitleState));
 	this.addChild(new openfl_display_FPS(10,3,16777215));
 };
 $hxClasses["Main"] = Main;
 Main.__name__ = "Main";
 Main.__super__ = openfl_display_Sprite;
 Main.prototype = $extend(openfl_display_Sprite.prototype,{
-	gameWidth: null
-	,gameHeight: null
-	,initialState: null
-	,zoom: null
-	,skipSplash: null
-	,startFullscreen: null
-	,__class__: Main
+	__class__: Main
 });
 var DocumentClass = function(current) {
 	current.addChild(this);
@@ -7214,7 +7202,7 @@ ManifestResources.init = function(config) {
 	}
 	openfl_text_Font.registerFont(_$_$ASSET_$_$OPENFL_$_$flixel_$fonts_$nokiafc22_$ttf);
 	openfl_text_Font.registerFont(_$_$ASSET_$_$OPENFL_$_$flixel_$fonts_$monsterrat_$ttf);
-	var library = lime_utils_AssetLibrary.fromManifest(lime_utils_AssetManifest.parse("{\"name\":null,\"assets\":\"aoy4:pathy36:assets%2Fmusic%2Fmusic-goes-here.txty4:sizezy4:typey4:TEXTy2:idR1y7:preloadtgoR2i2880782R3y5:MUSICR5y26:assets%2Fmusic%2FFresh.mp3y9:pathGroupaR8hR6tgoR2i3071999R3R7R5y35:assets%2Fmusic%2FBopeebo_Voices.mp3R9aR10hR6tgoR2i210573R3R7R5y31:assets%2Fmusic%2FtitleShoot.mp3R9aR11hR6tgoR2i3279933R3R7R5y31:assets%2Fmusic%2FFresh_Inst.mp3R9aR12hR6tgoR2i1508831R3R7R5y26:assets%2Fmusic%2Ftitle.mp3R9aR13hR6tgoR2i3279933R3R7R5y33:assets%2Fmusic%2FFresh_Voices.mp3R9aR14hR6tgoR2i3071999R3R7R5y28:assets%2Fmusic%2FBopeebo.mp3R9aR15hR6tgoR2i3071999R3R7R5y33:assets%2Fmusic%2FBopeebo_Inst.mp3R9aR16hR6tgoR0y43:assets%2Fdata%2Ffresh%2Ffresh_section16.pngR2i133R3y5:IMAGER5R17R6tgoR0y43:assets%2Fdata%2Ffresh%2Ffresh_section11.pngR2i121R3R18R5R19R6tgoR0y42:assets%2Fdata%2Ffresh%2Ffresh_section5.pngR2i121R3R18R5R20R6tgoR0y42:assets%2Fdata%2Ffresh%2Ffresh_section9.pngR2i117R3R18R5R21R6tgoR0y43:assets%2Fdata%2Ffresh%2Ffresh_section14.pngR2i149R3R18R5R22R6tgoR0y42:assets%2Fdata%2Ffresh%2Ffresh_section1.pngR2i129R3R18R5R23R6tgoR0y42:assets%2Fdata%2Ffresh%2Ffresh_section4.pngR2i120R3R18R5R24R6tgoR0y43:assets%2Fdata%2Ffresh%2Ffresh_section13.pngR2i139R3R18R5R25R6tgoR0y42:assets%2Fdata%2Ffresh%2Ffresh_section6.pngR2i127R3R18R5R26R6tgoR0y43:assets%2Fdata%2Ffresh%2Ffresh_section10.pngR2i123R3R18R5R27R6tgoR0y42:assets%2Fdata%2Ffresh%2Ffresh_section2.pngR2i133R3R18R5R28R6tgoR0y34:assets%2Fdata%2Ffresh%2Ffresh.jsonR2i59R3R4R5R29R6tgoR0y43:assets%2Fdata%2Ffresh%2Ffresh_section15.pngR2i129R3R18R5R30R6tgoR0y43:assets%2Fdata%2Ffresh%2Ffresh_section12.pngR2i125R3R18R5R31R6tgoR0y42:assets%2Fdata%2Ffresh%2Ffresh_section7.pngR2i139R3R18R5R32R6tgoR0y42:assets%2Fdata%2Ffresh%2Ffresh_section8.pngR2i149R3R18R5R33R6tgoR0y42:assets%2Fdata%2Ffresh%2Ffresh_section3.pngR2i116R3R18R5R34R6tgoR0y46:assets%2Fdata%2Fbopeebo%2Fbopeebo_section8.pngR2i127R3R18R5R35R6tgoR0y47:assets%2Fdata%2Fbopeebo%2Fbopeebo_section12.pngR2i100R3R18R5R36R6tgoR0y46:assets%2Fdata%2Fbopeebo%2Fbopeebo_section1.pngR2i116R3R18R5R37R6tgoR0y46:assets%2Fdata%2Fbopeebo%2Fbopeebo_section6.pngR2i123R3R18R5R38R6tgoR0y46:assets%2Fdata%2Fbopeebo%2Fbopeebo_section7.pngR2i117R3R18R5R39R6tgoR0y46:assets%2Fdata%2Fbopeebo%2Fbopeebo_section5.pngR2i126R3R18R5R40R6tgoR0y46:assets%2Fdata%2Fbopeebo%2Fbopeebo_section9.pngR2i127R3R18R5R41R6tgoR0y46:assets%2Fdata%2Fbopeebo%2Fbopeebo_section4.pngR2i123R3R18R5R42R6tgoR0y47:assets%2Fdata%2Fbopeebo%2Fbopeebo_section10.pngR2i122R3R18R5R43R6tgoR0y47:assets%2Fdata%2Fbopeebo%2Fbopeebo_section11.pngR2i127R3R18R5R44R6tgoR0y38:assets%2Fdata%2Fbopeebo%2Fbopeebo.jsonR2i61R3R4R5R45R6tgoR0y47:assets%2Fdata%2Fbopeebo%2Fbopeebo_section14.pngR2i127R3R18R5R46R6tgoR0y46:assets%2Fdata%2Fbopeebo%2Fbopeebo_section3.pngR2i128R3R18R5R47R6tgoR0y47:assets%2Fdata%2Fbopeebo%2Fbopeebo_section15.pngR2i125R3R18R5R48R6tgoR0y46:assets%2Fdata%2Fbopeebo%2Fbopeebo_section2.pngR2i127R3R18R5R49R6tgoR0y47:assets%2Fdata%2Fbopeebo%2Fbopeebo_section13.pngR2i117R3R18R5R50R6tgoR0y33:assets%2Fdata%2FspecialThanks.txtR2i31R3R4R5R51R6tgoR0y33:assets%2Fdata%2Fsection1.asepriteR2i566R3y6:BINARYR5R52R6tgoR0y34:assets%2Fdata%2Fdata-goes-here.txtR2zR3R4R5R54R6tgoR0y26:assets%2Fimages%2Fnum8.pngR2i3914R3R18R5R55R6tgoR0y35:assets%2Fimages%2Fstagecurtains.pngR2i154716R3R18R5R56R6tgoR0y36:assets%2Fimages%2Fimages-go-here.txtR2zR3R4R5R57R6tgoR0y33:assets%2Fimages%2FhealthHeads.pngR2i22300R3R18R5R58R6tgoR0y26:assets%2Fimages%2Fnum0.pngR2i3738R3R18R5R59R6tgoR0y25:assets%2Fimages%2Fbad.pngR2i11727R3R18R5R60R6tgoR0y26:assets%2Fimages%2Fnum4.pngR2i3989R3R18R5R61R6tgoR0y35:assets%2Fimages%2FDADDY_DEAREST.pngR2i1106359R3R18R5R62R6tgoR0y33:assets%2Fimages%2FhealthHeads.xmlR2i429R3R4R5R63R6tgoR0y33:assets%2Fimages%2FNOTE_assets.xmlR2i4973R3R4R5R64R6tgoR0y26:assets%2Fimages%2Fnum6.pngR2i4181R3R18R5R65R6tgoR0y26:assets%2Fimages%2Fnum5.pngR2i4113R3R18R5R66R6tgoR0y26:assets%2Fimages%2Fnum2.pngR2i3990R3R18R5R67R6tgoR0y31:assets%2Fimages%2FGF_assets.pngR2i888273R3R18R5R68R6tgoR0y33:assets%2Fimages%2Fstage_light.pngR2i12177R3R18R5R69R6tgoR0y26:assets%2Fimages%2Flose.pngR2i236363R3R18R5R70R6tgoR0y31:assets%2Fimages%2FGF_assets.xmlR2i12842R3R4R5R71R6tgoR0y26:assets%2Fimages%2Fnum1.pngR2i3390R3R18R5R72R6tgoR0y26:assets%2Fimages%2Fgood.pngR2i11923R3R18R5R73R6tgoR0y32:assets%2Fimages%2Fstagefront.pngR2i143142R3R18R5R74R6tgoR0y39:assets%2Fimages%2Fui%2Fflixel_intro.pngR2i569811R3R18R5R75R6tgoR0y39:assets%2Fimages%2Fui%2Fflixel_intro.xmlR2i2493R3R4R5R76R6tgoR0y26:assets%2Fimages%2Fnum9.pngR2i3687R3R18R5R77R6tgoR0y26:assets%2Fimages%2Flogo.pngR2i86924R3R18R5R78R6tgoR0y31:assets%2Fimages%2FBOYFRIEND.pngR2i1351101R3R18R5R79R6tgoR0y26:assets%2Fimages%2Fshit.pngR2i15319R3R18R5R80R6tgoR0y33:assets%2Fimages%2FNOTE_assets.pngR2i716622R3R18R5R81R6tgoR0y25:assets%2Fimages%2Fset.pngR2i25471R3R18R5R82R6tgoR0y24:assets%2Fimages%2Fgo.pngR2i12296R3R18R5R83R6tgoR0y28:assets%2Fimages%2Fgrafix.pngR2i139101R3R18R5R84R6tgoR0y26:assets%2Fimages%2Fsick.pngR2i19249R3R18R5R85R6tgoR0y27:assets%2Fimages%2Fready.pngR2i28966R3R18R5R86R6tgoR0y35:assets%2Fimages%2FDADDY_DEAREST.xmlR2i6531R3R4R5R87R6tgoR0y31:assets%2Fimages%2FhealthBar.pngR2i307R3R18R5R88R6tgoR0y24:assets%2Fimages%2Fbg.pngR2i155574R3R18R5R89R6tgoR0y29:assets%2Fimages%2Frestart.pngR2i41117R3R18R5R90R6tgoR0y31:assets%2Fimages%2Fstageback.pngR2i36925R3R18R5R91R6tgoR0y26:assets%2Fimages%2Fnum7.pngR2i3692R3R18R5R92R6tgoR0y27:assets%2Fimages%2Fcombo.pngR2i14255R3R18R5R93R6tgoR0y26:assets%2Fimages%2Fnum3.pngR2i4022R3R18R5R94R6tgoR0y26:assets%2Fimages%2Flose.xmlR2i4131R3R4R5R95R6tgoR0y31:assets%2Fimages%2FBOYFRIEND.xmlR2i41362R3R4R5R96R6tgoR2i68962R3R7R5y31:assets%2Fsounds%2Fmissnote1.mp3R9aR97hR6tgoR2i68962R3R7R5y31:assets%2Fsounds%2Fmissnote2.mp3R9aR98hR6tgoR2i11426R3R7R5y28:assets%2Fsounds%2Fintro1.mp3R9aR99hR6tgoR2i34480R3R7R5y31:assets%2Fsounds%2Fbadnoise1.mp3R9aR100hR6tgoR2i34480R3R7R5y31:assets%2Fsounds%2Fbadnoise3.mp3R9aR101hR6tgoR2i11582R3R7R5y28:assets%2Fsounds%2Fintro3.mp3R9aR102hR6tgoR0y36:assets%2Fsounds%2Fsounds-go-here.txtR2zR3R4R5R103R6tgoR2i13254R3R7R5y29:assets%2Fsounds%2FintroGo.mp3R9aR104hR6tgoR2i12051R3R7R5y28:assets%2Fsounds%2Fintro2.mp3R9aR105hR6tgoR2i10168R3R7R5y28:assets%2Fsounds%2Fflixel.mp3R9aR106hR6tgoR2i34480R3R7R5y31:assets%2Fsounds%2Fbadnoise2.mp3R9aR107hR6tgoR2i6339R3R7R5y32:assets%2Fsounds%2FfreshIntro.mp3R9aR108hR6tgoR2i68962R3R7R5y31:assets%2Fsounds%2Fmissnote3.mp3R9aR109hR6tgoR2i39706R3R7R5y28:flixel%2Fsounds%2Fflixel.mp3R9aR110y28:flixel%2Fsounds%2Fflixel.ogghR6tgoR2i2114R3R7R5y26:flixel%2Fsounds%2Fbeep.mp3R9aR112y26:flixel%2Fsounds%2Fbeep.ogghR6tgoR2i5794R3y5:SOUNDR5R113R9aR112R113hgoR2i33629R3R114R5R111R9aR110R111hgoR2i15744R3y4:FONTy9:classNamey35:__ASSET__flixel_fonts_nokiafc22_ttfR5y30:flixel%2Ffonts%2Fnokiafc22.ttfR6tgoR2i29724R3R115R116y36:__ASSET__flixel_fonts_monsterrat_ttfR5y31:flixel%2Ffonts%2Fmonsterrat.ttfR6tgoR0y33:flixel%2Fimages%2Fui%2Fbutton.pngR2i519R3R18R5R121R6tgoR0y36:flixel%2Fimages%2Flogo%2Fdefault.pngR2i3280R3R18R5R122R6tgoR0y44:flixel%2Fflixel-ui%2Fimg%2Fdropdown_mark.pngR2i156R3R18R5R123R6tgoR0y42:flixel%2Fflixel-ui%2Fimg%2Fbutton_thin.pngR2i247R3R18R5R124R6tgoR0y48:flixel%2Fflixel-ui%2Fimg%2Fbutton_arrow_down.pngR2i446R3R18R5R125R6tgoR0y37:flixel%2Fflixel-ui%2Fimg%2Fchrome.pngR2i253R3R18R5R126R6tgoR0y40:flixel%2Fflixel-ui%2Fimg%2Fcheck_box.pngR2i922R3R18R5R127R6tgoR0y37:flixel%2Fflixel-ui%2Fimg%2Fswatch.pngR2i185R3R18R5R128R6tgoR0y44:flixel%2Fflixel-ui%2Fimg%2Fbutton_toggle.pngR2i534R3R18R5R129R6tgoR0y41:flixel%2Fflixel-ui%2Fimg%2Fcheck_mark.pngR2i946R3R18R5R130R6tgoR0y43:flixel%2Fflixel-ui%2Fimg%2Fchrome_inset.pngR2i192R3R18R5R131R6tgoR0y43:flixel%2Fflixel-ui%2Fimg%2Ffinger_small.pngR2i294R3R18R5R132R6tgoR0y40:flixel%2Fflixel-ui%2Fimg%2Fradio_dot.pngR2i153R3R18R5R133R6tgoR0y42:flixel%2Fflixel-ui%2Fimg%2Fchrome_flat.pngR2i212R3R18R5R134R6tgoR0y40:flixel%2Fflixel-ui%2Fimg%2Fplus_mark.pngR2i147R3R18R5R135R6tgoR0y36:flixel%2Fflixel-ui%2Fimg%2Fradio.pngR2i191R3R18R5R136R6tgoR0y46:flixel%2Fflixel-ui%2Fimg%2Fbutton_arrow_up.pngR2i493R3R18R5R137R6tgoR0y48:flixel%2Fflixel-ui%2Fimg%2Fbutton_arrow_left.pngR2i459R3R18R5R138R6tgoR0y41:flixel%2Fflixel-ui%2Fimg%2Fminus_mark.pngR2i136R3R18R5R139R6tgoR0y44:flixel%2Fflixel-ui%2Fimg%2Ftooltip_arrow.pngR2i18509R3R18R5R140R6tgoR0y39:flixel%2Fflixel-ui%2Fimg%2Ftab_back.pngR2i210R3R18R5R141R6tgoR0y37:flixel%2Fflixel-ui%2Fimg%2Fbutton.pngR2i433R3R18R5R142R6tgoR0y34:flixel%2Fflixel-ui%2Fimg%2Ftab.pngR2i201R3R18R5R143R6tgoR0y49:flixel%2Fflixel-ui%2Fimg%2Fbutton_arrow_right.pngR2i511R3R18R5R144R6tgoR0y41:flixel%2Fflixel-ui%2Fimg%2Ffinger_big.pngR2i1724R3R18R5R145R6tgoR0y43:flixel%2Fflixel-ui%2Fimg%2Fchrome_light.pngR2i214R3R18R5R146R6tgoR0y36:flixel%2Fflixel-ui%2Fimg%2Finvis.pngR2i128R3R18R5R147R6tgoR0y38:flixel%2Fflixel-ui%2Fimg%2Fhilight.pngR2i129R3R18R5R148R6tgoR0y34:flixel%2Fflixel-ui%2Fimg%2Fbox.pngR2i912R3R18R5R149R6tgoR0y39:flixel%2Fflixel-ui%2Fxml%2Fdefaults.xmlR2i1263R3R4R5R150R6tgoR0y53:flixel%2Fflixel-ui%2Fxml%2Fdefault_loading_screen.xmlR2i1953R3R4R5R151R6tgoR0y44:flixel%2Fflixel-ui%2Fxml%2Fdefault_popup.xmlR2i1848R3R4R5R152R6tgh\",\"rootPath\":null,\"version\":2,\"libraryArgs\":[],\"libraryType\":null}",ManifestResources.rootPath));
+	var library = lime_utils_AssetLibrary.fromManifest(lime_utils_AssetManifest.parse("{\"name\":null,\"assets\":\"aoy4:pathy36:assets%2Fmusic%2Fmusic-goes-here.txty4:sizezy4:typey4:TEXTy2:idR1y7:preloadtgoR2i2880782R3y5:MUSICR5y26:assets%2Fmusic%2FFresh.mp3y9:pathGroupaR8hR6tgoR2i3071999R3R7R5y35:assets%2Fmusic%2FBopeebo_Voices.mp3R9aR10hR6tgoR2i210573R3R7R5y31:assets%2Fmusic%2FtitleShoot.mp3R9aR11hR6tgoR2i3279933R3R7R5y31:assets%2Fmusic%2FFresh_Inst.mp3R9aR12hR6tgoR2i1508831R3R7R5y26:assets%2Fmusic%2Ftitle.mp3R9aR13hR6tgoR2i3279933R3R7R5y33:assets%2Fmusic%2FFresh_Voices.mp3R9aR14hR6tgoR2i3071999R3R7R5y28:assets%2Fmusic%2FBopeebo.mp3R9aR15hR6tgoR2i3071999R3R7R5y33:assets%2Fmusic%2FBopeebo_Inst.mp3R9aR16hR6tgoR0y43:assets%2Fdata%2Ffresh%2Ffresh_section16.pngR2i133R3y5:IMAGER5R17R6tgoR0y43:assets%2Fdata%2Ffresh%2Ffresh_section11.pngR2i121R3R18R5R19R6tgoR0y42:assets%2Fdata%2Ffresh%2Ffresh_section5.pngR2i121R3R18R5R20R6tgoR0y42:assets%2Fdata%2Ffresh%2Ffresh_section9.pngR2i117R3R18R5R21R6tgoR0y43:assets%2Fdata%2Ffresh%2Ffresh_section14.pngR2i149R3R18R5R22R6tgoR0y42:assets%2Fdata%2Ffresh%2Ffresh_section1.pngR2i129R3R18R5R23R6tgoR0y42:assets%2Fdata%2Ffresh%2Ffresh_section4.pngR2i120R3R18R5R24R6tgoR0y43:assets%2Fdata%2Ffresh%2Ffresh_section13.pngR2i139R3R18R5R25R6tgoR0y42:assets%2Fdata%2Ffresh%2Ffresh_section6.pngR2i127R3R18R5R26R6tgoR0y43:assets%2Fdata%2Ffresh%2Ffresh_section10.pngR2i123R3R18R5R27R6tgoR0y42:assets%2Fdata%2Ffresh%2Ffresh_section2.pngR2i133R3R18R5R28R6tgoR0y34:assets%2Fdata%2Ffresh%2Ffresh.jsonR2i59R3R4R5R29R6tgoR0y43:assets%2Fdata%2Ffresh%2Ffresh_section15.pngR2i129R3R18R5R30R6tgoR0y43:assets%2Fdata%2Ffresh%2Ffresh_section12.pngR2i125R3R18R5R31R6tgoR0y42:assets%2Fdata%2Ffresh%2Ffresh_section7.pngR2i139R3R18R5R32R6tgoR0y42:assets%2Fdata%2Ffresh%2Ffresh_section8.pngR2i149R3R18R5R33R6tgoR0y42:assets%2Fdata%2Ffresh%2Ffresh_section3.pngR2i116R3R18R5R34R6tgoR0y46:assets%2Fdata%2Fbopeebo%2Fbopeebo_section8.pngR2i127R3R18R5R35R6tgoR0y47:assets%2Fdata%2Fbopeebo%2Fbopeebo_section12.pngR2i100R3R18R5R36R6tgoR0y46:assets%2Fdata%2Fbopeebo%2Fbopeebo_section1.pngR2i116R3R18R5R37R6tgoR0y46:assets%2Fdata%2Fbopeebo%2Fbopeebo_section6.pngR2i123R3R18R5R38R6tgoR0y46:assets%2Fdata%2Fbopeebo%2Fbopeebo_section7.pngR2i117R3R18R5R39R6tgoR0y46:assets%2Fdata%2Fbopeebo%2Fbopeebo_section5.pngR2i126R3R18R5R40R6tgoR0y46:assets%2Fdata%2Fbopeebo%2Fbopeebo_section9.pngR2i127R3R18R5R41R6tgoR0y46:assets%2Fdata%2Fbopeebo%2Fbopeebo_section4.pngR2i123R3R18R5R42R6tgoR0y47:assets%2Fdata%2Fbopeebo%2Fbopeebo_section10.pngR2i122R3R18R5R43R6tgoR0y47:assets%2Fdata%2Fbopeebo%2Fbopeebo_section11.pngR2i127R3R18R5R44R6tgoR0y38:assets%2Fdata%2Fbopeebo%2Fbopeebo.jsonR2i61R3R4R5R45R6tgoR0y47:assets%2Fdata%2Fbopeebo%2Fbopeebo_section14.pngR2i127R3R18R5R46R6tgoR0y46:assets%2Fdata%2Fbopeebo%2Fbopeebo_section3.pngR2i128R3R18R5R47R6tgoR0y47:assets%2Fdata%2Fbopeebo%2Fbopeebo_section15.pngR2i125R3R18R5R48R6tgoR0y46:assets%2Fdata%2Fbopeebo%2Fbopeebo_section2.pngR2i127R3R18R5R49R6tgoR0y47:assets%2Fdata%2Fbopeebo%2Fbopeebo_section13.pngR2i117R3R18R5R50R6tgoR0y33:assets%2Fdata%2FspecialThanks.txtR2i31R3R4R5R51R6tgoR0y33:assets%2Fdata%2Fsection1.asepriteR2i566R3y6:BINARYR5R52R6tgoR0y34:assets%2Fdata%2Fdata-goes-here.txtR2zR3R4R5R54R6tgoR0y26:assets%2Fimages%2Fnum8.pngR2i3914R3R18R5R55R6tgoR0y35:assets%2Fimages%2Fstagecurtains.pngR2i154716R3R18R5R56R6tgoR0y36:assets%2Fimages%2Fimages-go-here.txtR2zR3R4R5R57R6tgoR0y33:assets%2Fimages%2FhealthHeads.pngR2i22300R3R18R5R58R6tgoR0y26:assets%2Fimages%2Fnum0.pngR2i3738R3R18R5R59R6tgoR0y25:assets%2Fimages%2Fbad.pngR2i11727R3R18R5R60R6tgoR0y26:assets%2Fimages%2Fnum4.pngR2i3989R3R18R5R61R6tgoR0y35:assets%2Fimages%2FDADDY_DEAREST.pngR2i1106359R3R18R5R62R6tgoR0y33:assets%2Fimages%2FhealthHeads.xmlR2i429R3R4R5R63R6tgoR0y33:assets%2Fimages%2FNOTE_assets.xmlR2i4973R3R4R5R64R6tgoR0y26:assets%2Fimages%2Fnum6.pngR2i4181R3R18R5R65R6tgoR0y26:assets%2Fimages%2Fnum5.pngR2i4113R3R18R5R66R6tgoR0y26:assets%2Fimages%2Fnum2.pngR2i3990R3R18R5R67R6tgoR0y31:assets%2Fimages%2FGF_assets.pngR2i888273R3R18R5R68R6tgoR0y33:assets%2Fimages%2Fstage_light.pngR2i12177R3R18R5R69R6tgoR0y26:assets%2Fimages%2Flose.pngR2i236363R3R18R5R70R6tgoR0y31:assets%2Fimages%2FGF_assets.xmlR2i12842R3R4R5R71R6tgoR0y26:assets%2Fimages%2Fnum1.pngR2i3390R3R18R5R72R6tgoR0y26:assets%2Fimages%2Fgood.pngR2i11923R3R18R5R73R6tgoR0y32:assets%2Fimages%2Fstagefront.pngR2i143142R3R18R5R74R6tgoR0y26:assets%2Fimages%2Fnum9.pngR2i3687R3R18R5R75R6tgoR0y26:assets%2Fimages%2Flogo.pngR2i86924R3R18R5R76R6tgoR0y31:assets%2Fimages%2FBOYFRIEND.pngR2i1351101R3R18R5R77R6tgoR0y26:assets%2Fimages%2Fshit.pngR2i15319R3R18R5R78R6tgoR0y33:assets%2Fimages%2FNOTE_assets.pngR2i716622R3R18R5R79R6tgoR0y25:assets%2Fimages%2Fset.pngR2i25471R3R18R5R80R6tgoR0y24:assets%2Fimages%2Fgo.pngR2i12296R3R18R5R81R6tgoR0y28:assets%2Fimages%2Fgrafix.pngR2i139101R3R18R5R82R6tgoR0y26:assets%2Fimages%2Fsick.pngR2i19249R3R18R5R83R6tgoR0y27:assets%2Fimages%2Fready.pngR2i28966R3R18R5R84R6tgoR0y35:assets%2Fimages%2FDADDY_DEAREST.xmlR2i6531R3R4R5R85R6tgoR0y31:assets%2Fimages%2FhealthBar.pngR2i307R3R18R5R86R6tgoR0y24:assets%2Fimages%2Fbg.pngR2i155574R3R18R5R87R6tgoR0y29:assets%2Fimages%2Frestart.pngR2i41117R3R18R5R88R6tgoR0y31:assets%2Fimages%2Fstageback.pngR2i36925R3R18R5R89R6tgoR0y26:assets%2Fimages%2Fnum7.pngR2i3692R3R18R5R90R6tgoR0y27:assets%2Fimages%2Fcombo.pngR2i14255R3R18R5R91R6tgoR0y26:assets%2Fimages%2Fnum3.pngR2i4022R3R18R5R92R6tgoR0y26:assets%2Fimages%2Flose.xmlR2i4131R3R4R5R93R6tgoR0y31:assets%2Fimages%2FBOYFRIEND.xmlR2i41362R3R4R5R94R6tgoR2i68962R3R7R5y31:assets%2Fsounds%2Fmissnote1.mp3R9aR95hR6tgoR2i68962R3R7R5y31:assets%2Fsounds%2Fmissnote2.mp3R9aR96hR6tgoR2i11426R3R7R5y28:assets%2Fsounds%2Fintro1.mp3R9aR97hR6tgoR2i34480R3R7R5y31:assets%2Fsounds%2Fbadnoise1.mp3R9aR98hR6tgoR2i34480R3R7R5y31:assets%2Fsounds%2Fbadnoise3.mp3R9aR99hR6tgoR2i11582R3R7R5y28:assets%2Fsounds%2Fintro3.mp3R9aR100hR6tgoR0y36:assets%2Fsounds%2Fsounds-go-here.txtR2zR3R4R5R101R6tgoR2i13254R3R7R5y29:assets%2Fsounds%2FintroGo.mp3R9aR102hR6tgoR2i12051R3R7R5y28:assets%2Fsounds%2Fintro2.mp3R9aR103hR6tgoR2i34480R3R7R5y31:assets%2Fsounds%2Fbadnoise2.mp3R9aR104hR6tgoR2i6339R3R7R5y32:assets%2Fsounds%2FfreshIntro.mp3R9aR105hR6tgoR2i68962R3R7R5y31:assets%2Fsounds%2Fmissnote3.mp3R9aR106hR6tgoR2i39706R3R7R5y28:flixel%2Fsounds%2Fflixel.mp3R9aR107y28:flixel%2Fsounds%2Fflixel.ogghR6tgoR2i2114R3R7R5y26:flixel%2Fsounds%2Fbeep.mp3R9aR109y26:flixel%2Fsounds%2Fbeep.ogghR6tgoR2i5794R3y5:SOUNDR5R110R9aR109R110hgoR2i33629R3R111R5R108R9aR107R108hgoR2i15744R3y4:FONTy9:classNamey35:__ASSET__flixel_fonts_nokiafc22_ttfR5y30:flixel%2Ffonts%2Fnokiafc22.ttfR6tgoR2i29724R3R112R113y36:__ASSET__flixel_fonts_monsterrat_ttfR5y31:flixel%2Ffonts%2Fmonsterrat.ttfR6tgoR0y33:flixel%2Fimages%2Fui%2Fbutton.pngR2i519R3R18R5R118R6tgoR0y36:flixel%2Fimages%2Flogo%2Fdefault.pngR2i3280R3R18R5R119R6tgh\",\"rootPath\":null,\"version\":2,\"libraryArgs\":[],\"libraryType\":null}",ManifestResources.rootPath));
 	lime_utils_Assets.registerLibrary("default",library);
 	library = lime_utils_Assets.getLibrary("default");
 	if(library != null) {
@@ -8208,8 +8196,8 @@ PlayState.prototype = $extend(flixel_addons_transition_FlxTransitionableState.pr
 			})(numScore), startDelay : Conductor.crochet * 0.002});
 			++daLoop;
 		}
-		haxe_Log.trace(this.combo,{ fileName : "source/PlayState.hx", lineNumber : 644, className : "PlayState", methodName : "popUpScore"});
-		haxe_Log.trace(seperatedScore,{ fileName : "source/PlayState.hx", lineNumber : 645, className : "PlayState", methodName : "popUpScore"});
+		haxe_Log.trace(this.combo,{ fileName : "source/PlayState.hx", lineNumber : 643, className : "PlayState", methodName : "popUpScore"});
+		haxe_Log.trace(seperatedScore,{ fileName : "source/PlayState.hx", lineNumber : 644, className : "PlayState", methodName : "popUpScore"});
 		coolText.set_text(Std.string(seperatedScore));
 		flixel_tweens_FlxTween.tween(rating,{ alpha : 0},0.2,{ startDelay : Conductor.crochet * 0.001});
 		flixel_tweens_FlxTween.tween(comboSpr,{ alpha : 0},0.2,{ onComplete : function(tween) {
@@ -8238,7 +8226,7 @@ PlayState.prototype = $extend(flixel_addons_transition_FlxTransitionableState.pr
 			this.notes.forEachAlive(function(daNote) {
 				if(daNote.canBeHit && daNote.mustPress && !daNote.tooLate) {
 					possibleNotes.push(daNote);
-					haxe_Log.trace("NOTE-" + daNote.strumTime + " ADDED",{ fileName : "source/PlayState.hx", lineNumber : 696, className : "PlayState", methodName : "keyShit"});
+					haxe_Log.trace("NOTE-" + daNote.strumTime + " ADDED",{ fileName : "source/PlayState.hx", lineNumber : 695, className : "PlayState", methodName : "keyShit"});
 				}
 			});
 			if(possibleNotes.length > 0) {
@@ -8402,7 +8390,7 @@ PlayState.prototype = $extend(flixel_addons_transition_FlxTransitionableState.pr
 		}
 	}
 	,noteCheck: function(keyP,note) {
-		haxe_Log.trace(note.noteData + " note check here " + (keyP == null ? "null" : "" + keyP),{ fileName : "source/PlayState.hx", lineNumber : 852, className : "PlayState", methodName : "noteCheck"});
+		haxe_Log.trace(note.noteData + " note check here " + (keyP == null ? "null" : "" + keyP),{ fileName : "source/PlayState.hx", lineNumber : 851, className : "PlayState", methodName : "noteCheck"});
 		if(keyP) {
 			this.goodNoteHit(note);
 		} else {
@@ -8597,18 +8585,18 @@ Reflect.makeVarArgs = function(f) {
 		return f(a2);
 	};
 };
-var SUSutil = function() { };
-$hxClasses["SUSutil"] = SUSutil;
-SUSutil.__name__ = "SUSutil";
-SUSutil.uncaughtErrorHandler = function() {
-	openfl_Lib.get_current().get_loaderInfo().uncaughtErrorEvents.addEventListener("uncaughtError",SUSutil.onError);
+var SUtil = function() { };
+$hxClasses["SUtil"] = SUtil;
+SUtil.__name__ = "SUtil";
+SUtil.uncaughtErrorHandler = function() {
+	openfl_Lib.get_current().get_loaderInfo().uncaughtErrorEvents.addEventListener("uncaughtError",SUtil.onError);
 	openfl_Lib.get_application().onExit.add(function(exitCode) {
 		if(openfl_Lib.get_current().get_loaderInfo().uncaughtErrorEvents.hasEventListener("uncaughtError")) {
-			openfl_Lib.get_current().get_loaderInfo().uncaughtErrorEvents.removeEventListener("uncaughtError",SUSutil.onError);
+			openfl_Lib.get_current().get_loaderInfo().uncaughtErrorEvents.removeEventListener("uncaughtError",SUtil.onError);
 		}
 	});
 };
-SUSutil.onError = function(e) {
+SUtil.onError = function(e) {
 	var stack = [];
 	stack.push(e.error);
 	var _g = 0;
@@ -8638,10 +8626,10 @@ SUSutil.onError = function(e) {
 	e.stopPropagation();
 	e.stopImmediatePropagation();
 	var msg = stack.join("\n");
-	SUSutil.println(msg);
+	SUtil.println(msg);
 	openfl_Lib.get_application().__window.alert(msg,"Error!");
 };
-SUSutil.println = function(msg) {
+SUtil.println = function(msg) {
 	haxe_Log.trace(msg,null);
 };
 var Std = function() { };
@@ -33422,6 +33410,7 @@ flixel_system_FlxSoundGroup.prototype = {
 	,__properties__: {set_volume:"set_volume"}
 };
 var flixel_system_FlxSplash = function(MaxSize) {
+	this._curPart = 0;
 	flixel_FlxState.call(this,MaxSize);
 };
 $hxClasses["flixel.system.FlxSplash"] = flixel_system_FlxSplash;
@@ -33429,12 +33418,16 @@ flixel_system_FlxSplash.__name__ = "flixel.system.FlxSplash";
 flixel_system_FlxSplash.nextState = null;
 flixel_system_FlxSplash.__super__ = flixel_FlxState;
 flixel_system_FlxSplash.prototype = $extend(flixel_FlxState.prototype,{
-	animatedIntro: null
-	,animatedTex: null
+	_sprite: null
+	,_gfx: null
+	,_text: null
+	,_times: null
+	,_colors: null
+	,_functions: null
+	,_curPart: null
 	,_cachedBgColor: null
 	,_cachedTimestep: null
 	,_cachedAutoPause: null
-	,skipScreen: null
 	,create: function() {
 		this._cachedBgColor = flixel_FlxG.cameras.get_bgColor();
 		flixel_FlxG.cameras.set_bgColor(-16777216);
@@ -33442,75 +33435,125 @@ flixel_system_FlxSplash.prototype = $extend(flixel_FlxState.prototype,{
 		flixel_FlxG.fixedTimestep = false;
 		this._cachedAutoPause = flixel_FlxG.autoPause;
 		flixel_FlxG.autoPause = false;
-		this.animatedTex = flixel_graphics_frames_FlxAtlasFrames.fromSparrow("assets/images/ui/flixel_intro.png","assets/images/ui/flixel_intro.xml");
-		this.animatedIntro = new flixel_FlxSprite(0,0);
-		this.animatedIntro.set_frames(this.animatedTex);
-		this.animatedIntro.animation.addByPrefix("intro","intro",24);
-		this.animatedIntro.animation.play("intro");
-		this.animatedIntro.updateHitbox();
-		this.animatedIntro.set_antialiasing(false);
-		this.animatedIntro.screenCenter();
-		this.add(this.animatedIntro);
-		new flixel_util_FlxTimer().start(0.636,$bind(this,this.timerCallback));
-		this.onResize(openfl_Lib.get_current().stage.stageWidth,openfl_Lib.get_current().stage.stageHeight);
+		flixel_FlxG.keys.enabled = false;
+		this._times = [0.041,0.184,0.334,0.495,0.636];
+		this._colors = [47394,16761138,16066382,3555839,314875];
+		this._functions = [$bind(this,this.drawGreen),$bind(this,this.drawYellow),$bind(this,this.drawRed),$bind(this,this.drawBlue),$bind(this,this.drawLightBlue)];
+		var _g = 0;
+		var _g1 = this._times;
+		while(_g < _g1.length) new flixel_util_FlxTimer().start(_g1[_g++],$bind(this,this.timerCallback));
+		var stageWidth = openfl_Lib.get_current().stage.stageWidth;
+		var stageHeight = openfl_Lib.get_current().stage.stageHeight;
+		this._sprite = new openfl_display_Sprite();
+		openfl_Lib.get_current().stage.addChild(this._sprite);
+		this._gfx = this._sprite.get_graphics();
+		this._text = new openfl_text_TextField();
+		this._text.set_selectable(false);
+		this._text.set_embedFonts(true);
+		var dtf = new openfl_text_TextFormat(flixel_system_FlxAssets.FONT_DEFAULT,16,16777215);
+		dtf.align = 0;
+		this._text.set_defaultTextFormat(dtf);
+		this._text.set_text("HaxeFlixel");
+		openfl_Lib.get_current().stage.addChild(this._text);
+		this.onResize(stageWidth,stageHeight);
 		if(!flixel_system_FlxSplash.muted) {
-			flixel_FlxG.sound.play("assets/sounds/flixel.mp3",0.7);
+			flixel_FlxG.sound.load(openfl_utils_Assets.getSound("flixel/sounds/flixel" + ".ogg")).play();
 		}
-		if(flixel_FlxG.save.data.hasSeenSplash != null && flixel_FlxG.save.data.hasSeenSplash) {
-			this.skipScreen = new flixel_text_FlxText(0,flixel_FlxG.height,0,"Press Enter Or Touch Your Screen To Skip",16);
-			this.skipScreen.setFormat("Nokia Cellphone FC Small",18,-1,"left",flixel_text_FlxTextBorderStyle.OUTLINE,-16777216);
-			this.skipScreen.set_borderSize(1.5);
-			this.skipScreen.set_antialiasing(true);
-			this.skipScreen.scrollFactor.set();
-			this.skipScreen.set_alpha(0);
-			var fh = this.skipScreen;
-			fh.set_y(fh.y - this.skipScreen.textField.get_textHeight());
-			this.add(this.skipScreen);
-			flixel_tweens_FlxTween.tween(this.skipScreen,{ alpha : 1},0.0001);
-		}
-	}
-	,update: function(elapsed) {
-		var tmp;
-		if(flixel_FlxG.save.data.hasSeenSplash) {
-			var _this = flixel_FlxG.keys.justPressed;
-			if(!_this.keyManager.checkStatus(13,_this.status)) {
-				var _this = flixel_FlxG.mouse._leftButton;
-				tmp = _this.current == 1 || _this.current == 2;
-			} else {
-				tmp = true;
-			}
-		} else {
-			tmp = false;
-		}
-		if(tmp) {
-			this.onComplete(null);
-		}
-		flixel_FlxState.prototype.update.call(this,elapsed);
 	}
 	,destroy: function() {
+		this._sprite = null;
+		this._gfx = null;
+		this._text = null;
+		this._times = null;
+		this._colors = null;
+		this._functions = null;
 		flixel_FlxState.prototype.destroy.call(this);
-		this.animatedIntro.destroy();
 	}
 	,onResize: function(Width,Height) {
 		flixel_FlxState.prototype.onResize.call(this,Width,Height);
+		this._sprite.set_x(Width / 2);
+		this._sprite.set_y(Height / 2 - 20 * flixel_FlxG.game.get_scaleY());
+		this._text.set_width(Width / flixel_FlxG.game.get_scaleX());
+		this._text.set_x(0);
+		this._text.set_y(this._sprite.get_y() + 80 * flixel_FlxG.game.get_scaleY());
+		this._sprite.set_scaleX(this._text.set_scaleX(flixel_FlxG.game.get_scaleX()));
+		this._sprite.set_scaleY(this._text.set_scaleY(flixel_FlxG.game.get_scaleY()));
 	}
 	,timerCallback: function(Timer) {
-		flixel_tweens_FlxTween.tween(this.animatedIntro,{ alpha : 1},0.6,{ ease : flixel_tweens_FlxEase.quadOut, onComplete : $bind(this,this.onComplete)});
+		this._functions[this._curPart]();
+		this._text.set_textColor(this._colors[this._curPart]);
+		this._text.set_text("HaxeFlixel");
+		this._curPart++;
+		if(this._curPart == 5) {
+			flixel_tweens_FlxTween.tween(this._sprite,{ alpha : 0},3.0,{ ease : flixel_tweens_FlxEase.quadOut, onComplete : $bind(this,this.onComplete)});
+			flixel_tweens_FlxTween.tween(this._text,{ alpha : 0},3.0,{ ease : flixel_tweens_FlxEase.quadOut});
+		}
+	}
+	,drawGreen: function() {
+		this._gfx.beginFill(47394);
+		this._gfx.moveTo(0,-37);
+		this._gfx.lineTo(1,-37);
+		this._gfx.lineTo(37,0);
+		this._gfx.lineTo(37,1);
+		this._gfx.lineTo(1,37);
+		this._gfx.lineTo(0,37);
+		this._gfx.lineTo(-37,1);
+		this._gfx.lineTo(-37,0);
+		this._gfx.lineTo(0,-37);
+		this._gfx.endFill();
+	}
+	,drawYellow: function() {
+		this._gfx.beginFill(16761138);
+		this._gfx.moveTo(-50,-50);
+		this._gfx.lineTo(-25,-50);
+		this._gfx.lineTo(0,-37);
+		this._gfx.lineTo(-37,0);
+		this._gfx.lineTo(-50,-25);
+		this._gfx.lineTo(-50,-50);
+		this._gfx.endFill();
+	}
+	,drawRed: function() {
+		this._gfx.beginFill(16066382);
+		this._gfx.moveTo(50,-50);
+		this._gfx.lineTo(25,-50);
+		this._gfx.lineTo(1,-37);
+		this._gfx.lineTo(37,0);
+		this._gfx.lineTo(50,-25);
+		this._gfx.lineTo(50,-50);
+		this._gfx.endFill();
+	}
+	,drawBlue: function() {
+		this._gfx.beginFill(3555839);
+		this._gfx.moveTo(-50,50);
+		this._gfx.lineTo(-25,50);
+		this._gfx.lineTo(0,37);
+		this._gfx.lineTo(-37,1);
+		this._gfx.lineTo(-50,25);
+		this._gfx.lineTo(-50,50);
+		this._gfx.endFill();
+	}
+	,drawLightBlue: function() {
+		this._gfx.beginFill(314875);
+		this._gfx.moveTo(50,50);
+		this._gfx.lineTo(25,50);
+		this._gfx.lineTo(1,37);
+		this._gfx.lineTo(37,1);
+		this._gfx.lineTo(50,25);
+		this._gfx.lineTo(50,50);
+		this._gfx.endFill();
 	}
 	,onComplete: function(Tween) {
 		flixel_FlxG.cameras.set_bgColor(this._cachedBgColor);
 		flixel_FlxG.fixedTimestep = this._cachedTimestep;
 		flixel_FlxG.autoPause = this._cachedAutoPause;
 		flixel_FlxG.keys.enabled = true;
+		openfl_Lib.get_current().stage.removeChild(this._sprite);
+		openfl_Lib.get_current().stage.removeChild(this._text);
 		var nextState = Type.createInstance(flixel_system_FlxSplash.nextState,[]);
 		if(flixel_FlxG.game._state.switchTo(nextState)) {
 			flixel_FlxG.game._requestedState = nextState;
 		}
 		flixel_FlxG.game._gameJustStarted = true;
-		if(flixel_FlxG.save.data.hasSeenSplash == null) {
-			flixel_FlxG.save.data.hasSeenSplash = true;
-			flixel_FlxG.save.flush();
-		}
 	}
 	,__class__: flixel_system_FlxSplash
 });
@@ -68096,7 +68139,7 @@ var lime_utils_AssetCache = function() {
 	this.audio = new haxe_ds_StringMap();
 	this.font = new haxe_ds_StringMap();
 	this.image = new haxe_ds_StringMap();
-	this.version = 120301;
+	this.version = 211602;
 };
 $hxClasses["lime.utils.AssetCache"] = lime_utils_AssetCache;
 lime_utils_AssetCache.__name__ = "lime.utils.AssetCache";
@@ -74631,14 +74674,13 @@ var openfl_display_FPS = function(x,y,color) {
 	if(x == null) {
 		x = 10;
 	}
-	this.fuckFps = false;
 	openfl_text_TextField.call(this);
 	this.set_x(x);
 	this.set_y(y);
 	this.currentFPS = 0;
 	this.set_selectable(false);
 	this.mouseEnabled = false;
-	this.set_defaultTextFormat(new openfl_text_TextFormat("_sans",12,color));
+	this.set_defaultTextFormat(new openfl_text_TextFormat("robotoserif120pt.ttf",20,color));
 	this.set_text("FPS: ");
 	this.cacheCount = 0;
 	this.currentTime = 0;
@@ -74654,17 +74696,13 @@ openfl_display_FPS.prototype = $extend(openfl_text_TextField.prototype,{
 	,cacheCount: null
 	,currentTime: null
 	,times: null
-	,fuckFps: null
 	,__enterFrame: function(deltaTime) {
 		this.currentTime += deltaTime;
 		this.times.push(this.currentTime);
 		while(this.times[0] < this.currentTime - 1000) this.times.shift();
 		var currentCount = this.times.length;
 		this.currentFPS = Math.round((currentCount + this.cacheCount) / 2);
-		if(this.currentFPS > Main.framerate) {
-			this.currentFPS = Main.framerate;
-		}
-		if(currentCount != this.cacheCount) {
+		if(currentCount != this.cacheCount && this.get_visible()) {
 			this.set_text("FPS: " + this.currentFPS);
 			var memoryMegas = 0;
 			memoryMegas = Math.abs(flixel_math_FlxMath.roundDecimal(openfl_system_System.get_totalMemory() / 1000000,1));
@@ -113388,7 +113426,6 @@ openfl_display_DisplayObject.__tempStack = new lime_utils_ObjectPool(function() 
 },function(stack) {
 	stack.set_length(0);
 });
-Main.framerate = 60;
 AssetPaths.music_goes_here__txt = "assets/music/music-goes-here.txt";
 AssetPaths.Fresh__mp3 = "assets/music/Fresh.mp3";
 AssetPaths.Bopeebo_Voices__mp3 = "assets/music/Bopeebo_Voices.mp3";
@@ -113454,8 +113491,6 @@ AssetPaths.GF_assets__xml = "assets/images/GF_assets.xml";
 AssetPaths.num1__png = "assets/images/num1.png";
 AssetPaths.good__png = "assets/images/good.png";
 AssetPaths.stagefront__png = "assets/images/stagefront.png";
-AssetPaths.flixel_intro__png = "assets/images/ui/flixel_intro.png";
-AssetPaths.flixel_intro__xml = "assets/images/ui/flixel_intro.xml";
 AssetPaths.num9__png = "assets/images/num9.png";
 AssetPaths.logo__png = "assets/images/logo.png";
 AssetPaths.BOYFRIEND__png = "assets/images/BOYFRIEND.png";
@@ -113485,7 +113520,6 @@ AssetPaths.intro3__mp3 = "assets/sounds/intro3.mp3";
 AssetPaths.sounds_go_here__txt = "assets/sounds/sounds-go-here.txt";
 AssetPaths.introGo__mp3 = "assets/sounds/introGo.mp3";
 AssetPaths.intro2__mp3 = "assets/sounds/intro2.mp3";
-AssetPaths.flixel__mp3 = "assets/sounds/flixel.mp3";
 AssetPaths.badnoise2__mp3 = "assets/sounds/badnoise2.mp3";
 AssetPaths.freshIntro__mp3 = "assets/sounds/freshIntro.mp3";
 AssetPaths.missnote3__mp3 = "assets/sounds/missnote3.mp3";
@@ -114386,7 +114420,7 @@ flixel_system__$FlxPreloader_GraphicLogoCorners.resourceName = "__ASSET__:bitmap
 flixel_system_FlxQuadTree.A_LIST = 0;
 flixel_system_FlxQuadTree.B_LIST = 1;
 flixel_system_FlxQuadTree._NUM_CACHED_QUAD_TREES = 0;
-flixel_system_FlxSplash.muted = false;
+flixel_system_FlxSplash.muted = true;
 flixel_system_debug__$FlxDebugger_GraphicFlixel.resourceType = "image/png";
 flixel_system_debug__$FlxDebugger_GraphicFlixel.resourceName = "__ASSET__:bitmap_flixel_system_debug__FlxDebugger_GraphicFlixel";
 flixel_system_debug__$FlxDebugger_GraphicDrawDebug.resourceType = "image/png";
