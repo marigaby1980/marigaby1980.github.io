@@ -14,9 +14,6 @@ Source Code [Here](https://github.com/mcagabe19/VsSteve-Source-Code-OLDER)
 
 ## Ludumdare Prototype
 
-Source Code [Here](https://github.com/mcagabe19/ld47-html5)
-
-### Team
-* mcagabe19(me) = Porter
+Ig it's will be removed
 
 ## Coming Soon!
