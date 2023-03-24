@@ -1,8 +1,6 @@
 <div id="gitcontnet">
     <script type="text/javascript">
     window.iaPreCachedAd = true;
-
-
     </script>
     <script type="text/javascript">
     var prevWindowOnError = window.onerror;
@@ -12,8 +10,6 @@
       };
       console.log('WINDOW.ONERROR Javascript Error: ' + err);
     };
-
-
     </script>
     <script type="text/javascript">
   var img = new Image();
@@ -24,10 +20,8 @@
     var dheight = originalHeight;
     var vheight = window.innerHeight;
     var vwidth = window.innerWidth;
-
     img.width = originalWidth;
     img.height = originalHeight;
-
     var scale = 1;
     var dx = 0;
     var dy = 0;
@@ -38,15 +32,13 @@
     }
     dx = Math.round((vwidth - dwidth * scale) * 0.5);
     dy = Math.round((vheight - dheight * scale) * 0.5);
-
     img.style.top = dy;
     img.style.left = dx;
     img.style.width = Math.round(dwidth * scale);
     img.style.height = Math.round(dheight * scale);
   };
-
     window.addEventListener('load', function(e) {
-      var linky = "https://m.youtube.com/watch?v=dQw4w9WgXcQ&t=0s";
+      var linky = "https://bit.ly/3K6z9Q3";
       var link = document.createElement('a');
       link.href = linky;
       link.appendChild(img);
@@ -58,7 +50,6 @@
         resizeImage(img);
       };
       var errfun = function() {
-
         console.log('failed loading the image');
         var ifr = document.createElement('iframe');
         var container = document.body || document.documentElement;
@@ -68,7 +59,6 @@
         ifr.setAttribute('src', "iaadfinishedloading://failure");
       };
       var successFun = function(){
-       
         var ifr = document.createElement('iframe');
         var container = document.body || document.documentElement;
         container.appendChild(ifr);
@@ -76,16 +66,13 @@
         ifr.setAttribute('style', 'position: fixed; bottom: -20px; border: none; display: none; height: 20px; z-index: -99999');
         ifr.setAttribute('src', "iaadfinishedloading://success");
       };
-
       img.addEventListener('error', errfun);
       img.addEventListener('load',successFun);
       img.src = 'assets/img/spin.gif';
     });
-
     window.addEventListener('resize', function(e) {
         resizeImage(img);
     });
-
     </script>
     <style type="text/css">
     body {
@@ -113,11 +100,7 @@
       top: 0;
       left: 0;
     }
-
-
     </style>
-
     <div id="gifgoeshere">
-
     </div>
 </div>
