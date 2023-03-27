@@ -2,7 +2,6 @@
 Yes I did everything at this site.
 
 # FNF PORTS
-
 ## Vs Steve Older And Old
 - Source Code (Older) [Here](https://github.com/MobilePorting/VsSteve-Source-Code-OLDER)
 - Source Code (Old) [Here](https://github.com/MobilePorting/VsSteve-Source-Code-OLD)
@@ -10,7 +9,7 @@ Yes I did everything at this site.
 * NOTE: PORTS ARE UNSTABLE
 
 ### Team
-* mcagabe19(me) = Porter
+* [mcagabe19](https://github.com/mcagabe19)(me) = Porter
 * [Sirox](https://github.com/Sirox228) = Adder gpu render and helper add middlescroll and fixing bugs
 * [An UNDERTALE Fan](https://github.com/An-undertale-fan) = Helper and loading screen maker (ig)
 * [UNSTOP4BLE](https://github.com/UNSTOP4BLE) = Helper for no texture loading (HTML5) and pause button adder
@@ -24,6 +23,6 @@ Yes I did everything at this site.
 * NOTE: PORT IS UNSTABLE
 
 ### Team
-* mcagabe19(me) = Whole ass coding of the port
+* [mcagabe19](https://github.com/mcagabe19)(me) = Whole ass coding of the port
 
 ## Coming Soon!
