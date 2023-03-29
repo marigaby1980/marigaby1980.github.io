@@ -25,4 +25,13 @@ Yes I did everything at this site.
 ### Team
 * [mcagabe19](https://github.com/mcagabe19)(me) = Whole ass coding of the port
 
+## Vs Jellymid
+- Source Code [Here](https://github.com/MobilePorting/VsJellyMid)
+
+* NOTE: PORT IS UNTESTED
+
+### Team
+* [mcagabe19](https://github.com/mcagabe19)(me) = Porter
+* [Hoovy](https://github.com/Memehovy) = Helper
+
 ## Coming Soon!
