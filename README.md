@@ -28,7 +28,7 @@ Yes I did everything at this site.
 ## Vs Jellymid
 - Source Code [Here](https://github.com/MobilePorting/VsJellyMid)
 
-* NOTE: PORT IS UNTESTED
+* NOTE: PORT IS UNSTABLE
 
 ### Team
 * [mcagabe19](https://github.com/mcagabe19)(me) = Porter
