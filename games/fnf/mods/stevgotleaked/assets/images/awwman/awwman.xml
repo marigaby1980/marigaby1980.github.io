@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="awwman.png">
+<SubTexture name="awwman stars0000" x="0" y="0" width="311" height="321" frameX="-2" frameY="-2" frameWidth="315" frameHeight="325" />
+<SubTexture name="awwman stars0001" x="311" y="0" width="311" height="321" frameX="-2" frameY="-2" frameWidth="315" frameHeight="325" />
+<SubTexture name="awwman stars0002" x="622" y="0" width="311" height="321" frameX="-2" frameY="-2" frameWidth="315" frameHeight="325" />
+<SubTexture name="awwman stars0003" x="0" y="321" width="311" height="321" frameX="-2" frameY="-2" frameWidth="315" frameHeight="325" />
+<SubTexture name="awwman stars0004" x="311" y="321" width="311" height="321" frameX="-2" frameY="-2" frameWidth="315" frameHeight="325" />
+</TextureAtlas>

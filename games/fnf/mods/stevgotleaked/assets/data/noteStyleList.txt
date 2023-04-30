@@ -1,1 +1,9 @@
+normal
 funkyArrows
+hardcore-funkyArrows
+pixel
+alex
+notch
+hardcore
+hardcore-notch
+hardcore-alex

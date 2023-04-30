@@ -1,2 +1,1 @@
-no-gf
-gf-christmas
+gf-pixel
